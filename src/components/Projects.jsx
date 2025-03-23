@@ -7,7 +7,7 @@ import urhealth from '../assets/urhealth.png';
 
 function Projects() {
     return (
-        <div id="projects" className='text-white' style={{marginBottom: '7rem'}}>
+        <div id="projects" className='text-white' style={{marginBottom: '7rem', zIndex: '1'}}>
             <h1 className='fw-bold pb-5 pt-5 text-center text-lg-start responsive-heading' data-aos="fade-up">Projects</h1>
             <div className='d-flex flex-column gap-5'>
                 <div className="d-flex flex-nowrap justify-content-center" style={{ gap: '0' }} data-aos="fade-up">

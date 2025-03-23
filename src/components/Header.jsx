@@ -94,7 +94,7 @@ function Header() {
             </div>
             <div
             className={`position-fixed w-100 d-flex justify-content-center scroll-indicator ${showIndicator ? "" : "hidden"}`}
-            style={{bottom: '2rem' ,left: 0}}>
+            style={{bottom: '2rem' ,left: 0, zIndex: 9999, }}>
             <i className="bi bi-chevron-down"style={{
                 fontSize: '2rem',
                 color: 'white',
@@ -104,7 +104,7 @@ function Header() {
                 lineHeight: '1',          
                 height: '2rem',  
                 width: '2rem',             
-                textAlign: 'center'        
+                textAlign: 'center',
             }}
                 onClick={() => {
                     const nextSection = document.getElementById("contact-me");
