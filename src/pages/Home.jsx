@@ -8,10 +8,13 @@ function Home() {
   return (
     <div>
         <Navbar />
-        <Header />
-        <About />   
-        <Projects /> 
+        <div className='body-wrapper'>
+            <Header />
+            <About />   
+            <Projects /> 
+        </div>
         <ContactMe />
+        
     </div>
   );
 }
