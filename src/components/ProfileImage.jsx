@@ -1,6 +1,7 @@
 import React from "react";
 
-const img = "https://i0.wp.com/fosterhopesac.org/wp-content/uploads/2021/10/Headshot-Placeholder-Square.png?w=200&ssl=1";
+import img from '../assets/headshot.jpg';
+
 
 function ProfileImage() {
   return (

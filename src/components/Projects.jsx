@@ -46,7 +46,7 @@ function Projects() {
                     </a>
 
                     <a
-                    href="https://google.com/"
+                    href="https://github.com/rmeji3"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-white text-decoration-none text-center"

@@ -4,6 +4,19 @@ import ProfileImage from "./ProfileImage";
 //This is a functional component that will return a header element.
 
 function Header() {
+    const scrollToSection = (rem, id) => {
+        const element = document.getElementById(id);
+      
+        // Convert rem to px
+        const remInPx = parseFloat(getComputedStyle(document.documentElement).fontSize);
+        const offsetInRem = rem; 
+        const yOffset = -remInPx * offsetInRem;
+      
+        const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
+      
+        window.scrollTo({ top: y, behavior: 'smooth' });
+    };
+
     return (
         <div id="header" className="d-flex flex-column gap-4 gap-lg-5 " style={{paddingTop: '4rem'}}>
             <header className="d-flex flex-column-reverse flex-lg-row justify-content-between align-items-center text-white w-100">
@@ -42,30 +55,15 @@ function Header() {
                 <div className="pt-4">
                     <nav>
                         <ul className="d-flex justify-content-center responsive-nav list-unstyled">
-                            <li><a  href="#about" style={{ color: 'white', textDecoration: 'none' }}
-                            onClick={() => {
-                                const section = document.getElementById('about-me');
-                                section?.scrollIntoView({ behavior: 'smooth' });
-                            }}
+                            <li><a  style={{ color: 'white', textDecoration: 'none', cursor: 'pointer' }}
+                            onClick={() => scrollToSection(4, 'about-me')}
                             >about me</a></li>
-                            <li><a style={{ color: 'white', textDecoration: 'none' }}
-                            onClick={() => {
-                                const element = document.getElementById('projects');
-                              
-                                const remInPx = parseFloat(getComputedStyle(document.documentElement).fontSize);
-                                const offsetInRem = 4; //nav bar height 4rem
-                                const yOffset = -remInPx * offsetInRem;
-                              
-                                const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
-                              
-                                window.scrollTo({ top: y, behavior: 'smooth' });
-                            }}
+                            <li><a style={{ color: 'white', textDecoration: 'none', cursor: 'pointer' }}
+                            onClick={() => scrollToSection(4, 'projects')}
                             >projects</a></li>
-                            <li><a  href="#contact" style={{ color: 'white', textDecoration: 'none' }}
-                            onClick={() => {
-                                const section = document.getElementById('contact-me');
-                                section?.scrollIntoView({ behavior: 'smooth' });
-                            }}
+                            <li><a style={{ color: 'white', textDecoration: 'none', cursor: 'pointer' }}
+                            onClick={() =>{document.getElementById('contact-me')?.scrollIntoView({ behavior: 'smooth' });
+                        }}
                             >contact me</a></li>
                         </ul>
                     </nav>
@@ -73,6 +71,6 @@ function Header() {
             </div>
         </div>
     );
-    }
+}
 
 export default Header;
