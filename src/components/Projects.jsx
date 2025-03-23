@@ -4,7 +4,7 @@ import Placeholder2 from '../assets/placeholder2.png';
 
 function Projects() {
     return (
-        <div id="projects" className='text-white' style={{marginBottom: '6rem'}}>
+        <div id="projects" className='text-white' style={{marginBottom: '7rem'}}>
             <h1 className='fw-bold pb-5 pt-5 text-center text-lg-start responsive-heading' data-aos="fade-up">Projects</h1>
             <div>
                 <div className="d-flex flex-nowrap justify-content-center" style={{ gap: '0' }} data-aos="fade-up">

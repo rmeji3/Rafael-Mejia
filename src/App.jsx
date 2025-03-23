@@ -14,7 +14,7 @@ function App() {
     AOS.init({ 
       duration: 800, 
       once: false,
-      offset: 500, // 👈 triggers animation when element is 150px into view
+      offset: 500, 
     });
     
   }, []);
