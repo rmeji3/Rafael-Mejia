@@ -1,9 +1,32 @@
 import React from "react";
 import ProfileImage from "./ProfileImage";
 
+import { useEffect, useState } from "react";
+
 //This is a functional component that will return a header element.
 
 function Header() {
+
+    const [showIndicator, setShowIndicator] = useState(true);
+
+    useEffect(() => {
+        const handleScroll = () => {
+          const contact = document.getElementById("contact-me");
+          if (!contact) return;
+    
+          const contactTop = contact.getBoundingClientRect().top;
+          const windowHeight = window.innerHeight;
+    
+          // If the contact section is in or near view, hide the arrow
+          setShowIndicator(contactTop > windowHeight);
+
+        };
+    
+        window.addEventListener("scroll", handleScroll);
+        handleScroll(); // Check once on load
+    
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
     const scrollToSection = (rem, id) => {
         const element = document.getElementById(id);
       
@@ -68,6 +91,26 @@ function Header() {
                         </ul>
                     </nav>
                 </div>
+            </div>
+            <div
+            className={`position-fixed w-100 d-flex justify-content-center scroll-indicator ${showIndicator ? "" : "hidden"}`}
+            style={{bottom: '2rem' ,left: 0}}>
+            <i className="bi bi-chevron-down"style={{
+                fontSize: '2rem',
+                color: 'white',
+                animation: 'bounce 2s infinite',
+                cursor: 'pointer',
+                display: 'block',          
+                lineHeight: '1',          
+                height: '2rem',  
+                width: '2rem',             
+                textAlign: 'center'        
+            }}
+                onClick={() => {
+                    const nextSection = document.getElementById("contact-me");
+                    nextSection?.scrollIntoView({ behavior: "smooth" });
+                }}
+            ></i>
             </div>
         </div>
     );
