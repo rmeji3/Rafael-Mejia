@@ -1,7 +1,7 @@
 import React from 'react';
 import github from '../assets/github.png';
 import battleship from '../assets/battleship.png';
-import messagingApp from '../assets/messagingApp.png';
+import sanchezInnovations from '../assets/sanchez-innovations.png';
 import urhealth from '../assets/urhealth.png';
 
 
@@ -37,15 +37,15 @@ function Projects() {
                 </div>
                 <div className="d-flex flex-nowrap justify-content-center" style={{ gap: '0' }} data-aos="fade-up">
                     <a
-                    href="https://github.com/rmeji3/Messaging-App"
+                    href="https://sanchez-innovations.com"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-white text-decoration-none text-center"
                     style={{ display: 'block', width: '50%' }}
                     >
-                    <img src={messagingApp} alt="Messaging App" className="img-fluid" />
-                    <p className="m-0 mt-2 responsive-subheading">Messaging App</p>
-                    <p className="m-0 responsive-body">Software Application</p>
+                    <img src={sanchezInnovations} alt="Sanchez Innovations" className="img-fluid" />
+                    <p className="m-0 mt-2 responsive-subheading">Sanchez Innovations</p>
+                    <p className="m-0 responsive-body">Lawn Care Business</p>
                     </a>
 
                     <a
