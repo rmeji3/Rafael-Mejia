@@ -1,8 +1,8 @@
 import React from 'react';
 import github from '../assets/github.png';
-import battleship from '../assets/battleship.png';
-import sanchezInnovations from '../assets/sanchez-innovations.png';
-import urhealth from '../assets/urhealth.png';
+import marias from '../assets/marias.png';
+import lupes from '../assets/lupes.png';
+import sanchezInnovations from '../assets/sanchez_innovations.png';
 
 
 function Projects() {
@@ -12,40 +12,40 @@ function Projects() {
             <div className='d-flex flex-column gap-5'>
                 <div className="d-flex flex-nowrap justify-content-center" style={{ gap: '0' }} data-aos="fade-up">
                     <a
-                    href="https://google.com/"
+                    href="https://master.dxfobhontupjx.amplifyapp.com/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-white text-decoration-none text-center"
                     style={{ display: 'block', width: '50%' }}
                     >
-                    <img src={urhealth} alt="UrHealth" className="img-fluid" />
-                    <p className="m-0 mt-2 responsive-subheading">UrHealth</p>
-                    <p className="m-0 responsive-body">Web Application</p>
+                        <img src={lupes} alt="Sanchez Innovations" className="img-fluid" />
+                        <p className="m-0 mt-2 responsive-subheading">Lupe's Garage Doors</p>
+                        <p className="m-0 responsive-body">Garage door Installation Business</p>
                     </a>
 
                     <a
-                    href="https://github.com/rmeji3/Battleship"
+                    href="https://main.d2vq4mm0gwts96.amplifyapp.com/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-white text-decoration-none text-center"
                     style={{ display: 'block', width: '50%' }}
                     >
-                    <img src={battleship} alt="Battleship" className="img-fluid" />
-                    <p className="m-0 mt-2 responsive-subheading">Battleship</p>
-                    <p className="m-0 responsive-body">Online Game</p>
+                        <img src={marias} alt="Marias" className="img-fluid" />
+                        <p className="m-0 mt-2 responsive-subheading">Maria's Tamales</p>
+                        <p className="m-0 responsive-body">Mexican Restaurant</p>
                     </a>
                 </div>
                 <div className="d-flex flex-nowrap justify-content-center" style={{ gap: '0' }} data-aos="fade-up">
                     <a
-                    href="https://sanchez-innovations.com"
+                    href="https://sanchez-innovations.com/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-white text-decoration-none text-center"
                     style={{ display: 'block', width: '50%' }}
                     >
-                    <img src={sanchezInnovations} alt="Sanchez Innovations" className="img-fluid" />
-                    <p className="m-0 mt-2 responsive-subheading">Sanchez Innovations</p>
-                    <p className="m-0 responsive-body">Lawn Care Business</p>
+                        <img src={sanchezInnovations} alt="Sanchez Innovations" className="img-fluid" />
+                        <p className="m-0 mt-2 responsive-subheading">Sanchez Innovations</p>
+                        <p className="m-0 responsive-body">Lawncare Business</p>
                     </a>
 
                     <a
@@ -55,8 +55,8 @@ function Projects() {
                     className="text-white text-decoration-none text-center"
                     style={{ display: 'block', width: '50%' }}
                     >
-                    <img src={github} alt="github" className="img-fluid" />
-                    <p className="m-0 mt-2 responsive-subheading">More on Github</p>
+                        <img src={github} alt="github" className="img-fluid" />
+                        <p className="m-0 mt-2 responsive-subheading">More on Github</p>
                     </a>
                 </div>
             </div>
