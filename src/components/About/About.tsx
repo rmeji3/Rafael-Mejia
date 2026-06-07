@@ -135,6 +135,24 @@ export default function About() {
         Outside of big tech, I actively work as a freelance developer building custom web applications and content management systems for small businesses. I also love diving deep into backend architecture, most recently building <strong>Ping</strong>, a large scale location based social app powered by React Native, ASP.NET Core, Redis, and PostgreSQL. When I am not writing code, you can usually find me lifting at the gym, experimenting with new recipes in the kitchen, or playing my guitar.
       </motion.p>
 
+      <a
+        className={styles.featureLink}
+        href="https://drive.google.com/file/d/17RgR_8iTKqkB4IOh7xzZp4BmfJhAjxQL/view?usp=drive_link"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Resume{' '}
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+          <path
+            d="M4 12L12 4M6 4h6v6"
+            stroke="currentColor"
+            strokeWidth="1.6"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </a>
+
       <motion.div
         className={styles.chips}
         variants={revealVariants}
