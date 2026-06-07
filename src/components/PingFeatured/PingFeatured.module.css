@@ -142,6 +142,43 @@
   margin-bottom: 2.4rem;
 }
 
+.mobileTags {
+  display: none;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 2.4rem;
+  width: calc(100% + 3rem);
+  margin-left: -1.5rem;
+  overflow: hidden;
+  grid-column: 1 / -1; /* Ensure it spans full width if in grid */
+}
+
+@media (min-width: 768px) {
+  .mobileTags {
+    width: calc(100% + 10rem);
+    margin-left: -5rem;
+  }
+}
+
+@media (max-width: 991px) {
+  .mobileTags {
+    display: flex;
+  }
+}
+
+.marqueeRow {
+  display: flex;
+  width: max-content;
+  align-items: center;
+}
+
+.marqueeTrack {
+  display: flex;
+  gap: 1.5rem;
+  width: max-content;
+  padding-left: 1.5rem;
+}
+
 .chipWrapper {
   display: block;
   position: relative;

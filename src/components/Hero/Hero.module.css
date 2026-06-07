@@ -4,6 +4,7 @@
   height: 100vh;
   z-index: 1;
   background-color: #1B84F3;
+  overflow: hidden;
 }
 
 .heroContainer {
@@ -198,7 +199,8 @@
 
 .leftHand {
   left: 0;
-  transform: translateY(-50%);
+  top: 10%;
+  transform: translateY(-10%);
 }
 
 .rightHand {
@@ -217,6 +219,10 @@
   z-index: 0;
 }
 
+.shadowMobile {
+  display: none;
+}
+
 /* Blinking cursor for typewriter effect */
 .cursor {
   display: inline-block;
@@ -231,4 +237,95 @@
 @keyframes blink {
   0%, 100% { opacity: 1; }
   50% { opacity: 0; }
+}
+
+@media (max-width: 767px) {
+  .cluster {
+    width: 100vw;
+    height: 75vh;
+    aspect-ratio: auto;
+  }
+  
+  .posUpperRight { top: 32%; right: 25%; }
+  .posUpperLeft { top: 37%; left: 15%; }
+  .posLowerLeft { bottom: 15%; left: 0%; }
+  .posLowerRight { bottom: 23%; right: 5%; }
+  
+  .posUpperRight .svgBlock { height: clamp(90px, 15vh, 135px); }
+  .posUpperLeft .svgBlock { height: clamp(135px, 22vh, 190px); }
+  .posLowerLeft .svgBlock { height: clamp(180px, 30vh, 240px); }
+  .posLowerRight .svgBlock { height: clamp(150px, 26vh, 210px); }
+  
+  .textUpperLeft { font-size: clamp(1.0rem, 4.5vw, 1.35rem); }
+  .textLowerLeft { font-size: clamp(0.65rem, 3vw, 0.9rem); }
+  .textLowerRight { font-size: clamp(0.8rem, 3.75vw, 1.2rem); }
+  
+  .hand { width: clamp(75px, 18vw, 110px); }
+  
+  .leftHand {
+    top: 10%;
+  }
+
+  .rightHand {
+    top: 20%;
+  }
+  
+  .shadowDesktop {
+    display: none;
+  }
+  
+  .shadowMobile {
+    display: block;
+  }
+  
+  .shadow {
+    width: 110%;
+    height: auto;
+    bottom: 0;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .cluster {
+    width: 90vw;
+    height: auto;
+  }
+  
+  .posUpperRight { top: 20%; right: 33%; }
+  .posUpperLeft { top: 25%; left: 20%; }
+  .posLowerLeft { bottom: 20%; left: 10%; }
+  .posLowerRight { bottom: 27%; right: 23%; }
+  
+  .posUpperRight .svgBlock { height: clamp(150px, 25vh, 200px); }
+  .posUpperLeft .svgBlock { height: clamp(200px, 35vh, 350px); }
+  .posLowerLeft .svgBlock { height: clamp(350px, 45vh, 450px); }
+  .posLowerRight .svgBlock { height: clamp(280px, 30vh, 350px); }
+  
+  .textUpperLeft { font-size: clamp(1.5rem, 3vw, 3rem); }
+  .textLowerLeft { font-size: clamp(0.9rem, 1.8vw, 2rem); }
+  .textLowerRight { font-size: clamp(1.2rem, 2.5vw, 2.8rem); }
+  
+  .hand { width: clamp(130px, 20vw, 200px); }
+  
+  .leftHand {
+    top: 10%;
+  }
+
+  .rightHand {
+    top: 50%;
+  }
+  
+  .shadowDesktop {
+    display: none;
+  }
+  
+  .shadowMobile {
+    display: block;
+  }
+  
+  .shadow {
+    width: 110%;
+    height: auto;
+    bottom: -65vh;
+  }
 }

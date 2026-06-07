@@ -194,3 +194,17 @@
   color: #ffffff;
   font-size: 0.85rem;
 }
+
+@media (max-width: 767px) {
+  .footerArt {
+    min-height: 160px;
+  }
+  .lowerLeft { width: 100px; bottom: 5%; }
+  .lowerRight { width: 80px; bottom: 20%; }
+  .upperLeft { width: 60px; bottom: 40%; }
+  .upperRight { width: 40px; bottom: 55%; }
+  
+  .footerSocials {
+    gap: 1rem;
+  }
+}

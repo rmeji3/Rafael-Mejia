@@ -61,10 +61,10 @@ export default function Navbar() {
       </button>
 
       <div className={styles.links}>
-        <button onClick={() => scrollToSection('about-heading', 5.5)}>about</button>
-        <button onClick={() => scrollToSection('ping-middle', 5.5)}>ping</button>
-        <button onClick={() => scrollToSection('projects-heading', 1.5)}>work</button>
-        <button onClick={() => scrollToSection('contact-me', 5.5)}>contact</button>
+        <button onClick={() => scrollToSection('about-heading', 8.5)}>about</button>
+        <button onClick={() => scrollToSection('ping-middle', 8.5)}>ping</button>
+        <button onClick={() => scrollToSection('projects-heading', 8.5)}>work</button>
+        <button onClick={() => scrollToSection('contact-me', 8.5)}>contact</button>
       </div>
     </nav>
   );

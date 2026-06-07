@@ -14,6 +14,7 @@ import lowerRight from '../../assets/hero/lower-right-rec.svg';
 import leftHand from '../../assets/hero/left-hand.svg';
 import rightHand from '../../assets/hero/right-hand.svg';
 import bottomShadow from '../../assets/hero/bottom-shadow.svg';
+import bottomShadowSm from '../../assets/hero/bottom-shadow-sm.svg';
 
 export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -68,7 +69,7 @@ export default function Hero() {
             <img src={upperRight.src} alt="Upper Right Block" className={styles.svgBlock} />
             <button 
               className={`${styles.clampedText} ${styles.iconRightFace} ${styles.iconUpperRight} ${styles.bounce}`} 
-              onClick={() => scrollToSection('about-heading', 5.5, 2000)}
+              onClick={() => scrollToSection('about-heading', 8.5, 2000)}
               aria-label="Scroll down"
             >
               <svg className={styles.responsiveIcon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -106,11 +107,17 @@ export default function Hero() {
         </div>
       </div>
       
-      {/* Anchor the shadow exactly to the bottom of the hero section */}
+      {/* Anchor the shadows to the bottom of the hero section */}
       <motion.img 
         src={bottomShadow.src} 
         alt="Bottom Shadow" 
-        className={styles.shadow} 
+        className={`${styles.shadow} ${styles.shadowDesktop}`} 
+        style={{ x: "-50%", y: yShadow }}
+      />
+      <motion.img 
+        src={bottomShadowSm.src} 
+        alt="Bottom Shadow Mobile" 
+        className={`${styles.shadow} ${styles.shadowMobile}`} 
         style={{ x: "-50%", y: yShadow }}
       />
     </div>

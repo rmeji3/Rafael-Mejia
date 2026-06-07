@@ -25,6 +25,13 @@ const MapPinIcon = () => (
   <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{display:'block'}}><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
 );
 
+const PING_TAGS = [
+  { icon: <ReactIcon />, text: 'React Native' },
+  { icon: <DotNetIcon />, text: 'ASP.NET Core' },
+  { icon: <AppleIcon />, text: 'iOS' },
+  { icon: <MapPinIcon />, text: 'Location Based' },
+];
+
 const revealVariants = {
   hidden: { opacity: 0, y: 26 },
   visible: {
@@ -53,7 +60,7 @@ export default function PingFeatured() {
     <section className={styles.ping} id="ping" ref={sectionRef}>
       <p className={styles.pingTag}>✦ / Featured Project</p>
 
-      <div className={styles.inner} id="ping-middle">
+      <div className={styles.inner}>
         {/* Left Column */}
         <Parallax speed={0.04} className={styles.col}>
           <motion.div
@@ -62,7 +69,7 @@ export default function PingFeatured() {
             whileInView="visible"
             viewport={{ once: true, amount: 0.15 }}
           >
-            <p className={styles.miniTitle}>Ping: iOS App</p>
+            <p className={styles.miniTitle} id="ping-middle">Ping: iOS App</p>
             <h2 className={styles.title}>
               Stop gatekeeping the <span className={styles.hl}>experiences</span> worth having.
             </h2>
@@ -182,6 +189,46 @@ export default function PingFeatured() {
             </div>
           </motion.div>
         </Parallax>
+
+        {/* Mobile/Tablet Tags Marquee */}
+        <motion.div
+          className={styles.mobileTags}
+          variants={revealVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.15 }}
+        >
+          <div className={styles.marqueeRow}>
+            <motion.div
+              className={styles.marqueeTrack}
+              animate={{ x: ["0%", "-50%"] }}
+              transition={{ repeat: Infinity, duration: 60, ease: "linear" }}
+            >
+              {[...PING_TAGS, ...PING_TAGS, ...PING_TAGS, ...PING_TAGS, ...PING_TAGS, ...PING_TAGS, ...PING_TAGS, ...PING_TAGS].map((tag, i) => (
+                <div key={`pt1-${i}`} className={styles.chipWrapper}>
+                  <div className={styles.chipInner}>
+                    <span className={styles.k}>{tag.icon}</span> {tag.text}
+                  </div>
+                </div>
+              ))}
+            </motion.div>
+          </div>
+          <div className={styles.marqueeRow}>
+            <motion.div
+              className={styles.marqueeTrack}
+              animate={{ x: ["-50%", "0%"] }}
+              transition={{ repeat: Infinity, duration: 65, ease: "linear" }}
+            >
+              {[...PING_TAGS, ...PING_TAGS, ...PING_TAGS, ...PING_TAGS, ...PING_TAGS, ...PING_TAGS, ...PING_TAGS, ...PING_TAGS].map((tag, i) => (
+                <div key={`pt2-${i}`} className={styles.chipWrapper}>
+                  <div className={styles.chipInner}>
+                    <span className={styles.k}>{tag.icon}</span> {tag.text}
+                  </div>
+                </div>
+              ))}
+            </motion.div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

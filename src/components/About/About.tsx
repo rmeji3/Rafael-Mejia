@@ -3,6 +3,7 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import styles from './About.module.css';
+import headshotImg from '../../assets/headshot.jpg';
 
 const MsftIcon = () => (
   <svg viewBox="0 0 21 21" width="14" height="14" xmlns="http://www.w3.org/2000/svg" style={{display:'block'}}>
@@ -95,13 +96,13 @@ export default function About() {
   return (
     <section id="about-me" className={styles.container} ref={containerRef}>
       <motion.p
-        className="eyebrow"
+        className={styles.aboutLabel}
         variants={revealVariants}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.15 }}
       >
-        01 — About
+        About
       </motion.p>
 
       <motion.h2
@@ -115,46 +116,75 @@ export default function About() {
         Hello, I am <span className={styles.hl}>Rafael Mejia.</span>
       </motion.h2>
 
-      <motion.p
-        className={styles.bodyText}
-        variants={revealVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.15 }}
-      >
-        I recently graduated from the <strong>University of Illinois Chicago</strong> with a degree in Computer Science. During my studies, I completed two software engineering internships at <strong>Microsoft</strong> in Redmond, where I worked on the Azure Kubernetes Service team. My time there gave me incredible exposure to cloud infrastructure, writing tools in Go for cluster control planes, and optimizing resources for machine learning workloads.
-      </motion.p>
+      <div className={styles.contentContainer}>
+        {/* Rendered on right side on large/medium screens */}
+        <motion.div
+          className={`${styles.headshotWrapper} ${styles.desktopHeadshot}`}
+          variants={revealVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.15 }}
+        >
+          <div className={styles.headshotInner}>
+            <img src={headshotImg.src} alt="Rafael Mejia" className={styles.headshot} />
+          </div>
+        </motion.div>
 
-      <motion.p
-        className={styles.bodyText}
-        variants={revealVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.15 }}
-      >
-        Outside of big tech, I actively work as a freelance developer building custom web applications and content management systems for small businesses. I also love diving deep into backend architecture, most recently building <strong>Ping</strong>, a large scale location based social app powered by React Native, ASP.NET Core, Redis, and PostgreSQL. When I am not writing code, you can usually find me lifting at the gym, experimenting with new recipes in the kitchen, or playing my guitar.
-      </motion.p>
+        <motion.p
+          className={styles.bodyText}
+          variants={revealVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.15 }}
+        >
+          I recently graduated from the <strong>University of Illinois Chicago</strong> with a degree in Computer Science. During my studies, I completed two software engineering internships at <strong>Microsoft</strong> in Redmond, where I worked on the Azure Kubernetes Service team. My time there gave me incredible exposure to cloud infrastructure, writing tools in Go for cluster control planes, and optimizing resources for machine learning workloads.
+        </motion.p>
 
-      <a
-        className={styles.featureLink}
-        href="https://drive.google.com/file/d/17RgR_8iTKqkB4IOh7xzZp4BmfJhAjxQL/view?usp=drive_link"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Resume{' '}
-        <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
-          <path
-            d="M4 12L12 4M6 4h6v6"
-            stroke="currentColor"
-            strokeWidth="1.6"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      </a>
+        <motion.p
+          className={styles.bodyText}
+          variants={revealVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.15 }}
+        >
+          Outside of big tech, I actively work as a freelance developer building custom web applications and content management systems for small businesses. I also love diving deep into backend architecture, most recently building <strong>Ping</strong>, a large scale location based social app powered by React Native, ASP.NET Core, Redis, and PostgreSQL. When I am not writing code, you can usually find me lifting at the gym, experimenting with new recipes in the kitchen, or playing my guitar.
+        </motion.p>
 
+        <a
+          className={styles.featureLink}
+          href="https://drive.google.com/file/d/17RgR_8iTKqkB4IOh7xzZp4BmfJhAjxQL/view?usp=drive_link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Resume{' '}
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+            <path
+              d="M4 12L12 4M6 4h6v6"
+              stroke="currentColor"
+              strokeWidth="1.6"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </a>
+        
+        {/* Rendered under resume on small screens */}
+        <motion.div
+          className={`${styles.headshotWrapper} ${styles.mobileHeadshot}`}
+          variants={revealVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.15 }}
+        >
+          <div className={styles.headshotInner}>
+            <img src={headshotImg.src} alt="Rafael Mejia" className={styles.headshot} />
+          </div>
+        </motion.div>
+      </div>
+
+      {/* Desktop Grid View */}
       <motion.div
-        className={styles.chips}
+        className={styles.desktopChips}
         variants={revealVariants}
         initial="hidden"
         whileInView="visible"
@@ -171,6 +201,46 @@ export default function About() {
             </div>
           </motion.div>
         ))}
+      </motion.div>
+
+      {/* Mobile/Tablet Infinite Scrolling Rings */}
+      <motion.div
+        className={styles.mobileChips}
+        variants={revealVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.15 }}
+      >
+        <div className={styles.marqueeRow}>
+          <motion.div
+            className={styles.marqueeTrack}
+            animate={{ x: ["0%", "-50%"] }}
+            transition={{ repeat: Infinity, duration: 60, ease: "linear" }}
+          >
+            {[...ABOUT_TAGS.slice(0, 5), ...ABOUT_TAGS.slice(0, 5), ...ABOUT_TAGS.slice(0, 5), ...ABOUT_TAGS.slice(0, 5), ...ABOUT_TAGS.slice(0, 5), ...ABOUT_TAGS.slice(0, 5), ...ABOUT_TAGS.slice(0, 5), ...ABOUT_TAGS.slice(0, 5)].map((tag, i) => (
+              <div key={`m1-${i}`} className={styles.chipWrapper}>
+                <div className={styles.chipInner}>
+                  <span className={styles.k}>{tag.icon}</span> {tag.text}
+                </div>
+              </div>
+            ))}
+          </motion.div>
+        </div>
+        <div className={styles.marqueeRow}>
+          <motion.div
+            className={styles.marqueeTrack}
+            animate={{ x: ["-50%", "0%"] }}
+            transition={{ repeat: Infinity, duration: 65, ease: "linear" }}
+          >
+            {[...ABOUT_TAGS.slice(5), ...ABOUT_TAGS.slice(5), ...ABOUT_TAGS.slice(5), ...ABOUT_TAGS.slice(5), ...ABOUT_TAGS.slice(5), ...ABOUT_TAGS.slice(5), ...ABOUT_TAGS.slice(5), ...ABOUT_TAGS.slice(5)].map((tag, i) => (
+              <div key={`m2-${i}`} className={styles.chipWrapper}>
+                <div className={styles.chipInner}>
+                  <span className={styles.k}>{tag.icon}</span> {tag.text}
+                </div>
+              </div>
+            ))}
+          </motion.div>
+        </div>
       </motion.div>
     </section>
   );

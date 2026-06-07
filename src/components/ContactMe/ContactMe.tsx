@@ -85,9 +85,9 @@ export default function ContactMe() {
         >
           <nav className={styles.footerNav}>
             <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>Home</button>
-            <button onClick={() => scrollToSection('about-heading', 5.5)}>About</button>
-            <button onClick={() => scrollToSection('ping-middle', 5.5)}>Ping</button>
-            <button onClick={() => scrollToSection('projects-heading', 1.5)}>Work</button>
+            <button onClick={() => scrollToSection('about-heading', 8.5)}>About</button>
+            <button onClick={() => scrollToSection('ping-middle', 8.5)}>Ping</button>
+            <button onClick={() => scrollToSection('projects-heading', 8.5)}>Work</button>
           </nav>
 
           <div className={styles.footerArt}>

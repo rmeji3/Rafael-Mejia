@@ -4,6 +4,13 @@
   position: relative;
   box-sizing: border-box;
 }
+.workLabel {
+  font-family: var(--mono);
+  font-size: 0.84rem;
+  letter-spacing: 0.04em;
+  color: #1B84F3;
+  gap: 0.5rem;
+}
 
 .projects::before {
   content: "";

@@ -12,7 +12,7 @@
 .carouselWrapper {
   width: 100%;
   padding: 0 1rem;
-  min-width: 350px;
+  min-width: 100%;
   max-width: 80rem; /* 1280px */
 }
 @media (min-width: 768px) {
@@ -328,4 +328,23 @@
 .dotActive {
   background-color: #1B84F3;
   width: 2rem;
+}
+
+@media (max-width: 1024px) {
+  .navButton {
+    top: auto;
+    bottom: 0.75rem;
+    transform: none;
+    width: 2.25rem;
+    height: 2.25rem;
+  }
+  .navButtonPrev {
+    left: 15%;
+  }
+  .navButtonNext {
+    right: 15%;
+  }
+  .navButton:hover {
+    transform: translate(-2px, -2px);
+  }
 }

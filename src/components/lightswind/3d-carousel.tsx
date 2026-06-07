@@ -190,26 +190,24 @@ const ThreeDCarousel = ({
             ))}
           </div>
 
-          {!isMobile && (
-            <>
-              <button
-                className={`${styles.navButton} ${styles.navButtonPrev}`}
-                onClick={() =>
-                  setActive((prev) => (prev - 1 + items.length) % items.length)
-                }
-                aria-label="Previous"
-              >
-                <ChevronLeft className={styles.navIcon} />
-              </button>
-              <button
-                className={`${styles.navButton} ${styles.navButtonNext}`}
-                onClick={() => setActive((prev) => (prev + 1) % items.length)}
-                aria-label="Next"
-              >
-                <ChevronRight className={styles.navIcon} />
-              </button>
-            </>
-          )}
+          <>
+            <button
+              className={`${styles.navButton} ${styles.navButtonPrev}`}
+              onClick={() =>
+                setActive((prev) => (prev - 1 + items.length) % items.length)
+              }
+              aria-label="Previous"
+            >
+              <ChevronLeft className={styles.navIcon} />
+            </button>
+            <button
+              className={`${styles.navButton} ${styles.navButtonNext}`}
+              onClick={() => setActive((prev) => (prev + 1) % items.length)}
+              aria-label="Next"
+            >
+              <ChevronRight className={styles.navIcon} />
+            </button>
+          </>
 
           <div className={styles.dotsContainer}>
             {items.map((_, idx) => (

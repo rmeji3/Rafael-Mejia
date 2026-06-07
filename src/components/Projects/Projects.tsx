@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import Image from 'next/image';
 import { motion } from 'framer-motion';
 import lupes from '../../assets/lupes.png';
 import marias from '../../assets/marias.png';
@@ -97,16 +96,17 @@ export default function Projects() {
 
   return (
     <section className={styles.projects} id="projects">
-      <div className={styles.head} id="projects-heading">
+      <div className={styles.head}>
         <div>
           <motion.p
-            className="eyebrow"
+            className={styles.workLabel}
+            id="projects-heading"
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.15 }}
             transition={{ duration: 0.6 }}
           >
-            02 — Work
+            Work
           </motion.p>
           <motion.h2
             className={styles.title}
@@ -115,7 +115,7 @@ export default function Projects() {
             viewport={{ once: true, amount: 0.15 }}
             transition={{ duration: 0.6, delay: 0.05 }}
           >
-            Work
+            Projects
           </motion.h2>
         </div>
       </div>

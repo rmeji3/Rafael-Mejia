@@ -37,7 +37,22 @@
   z-index: 20;
   color: #ffffff;
   font-family: var(--sans);
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   font-weight: 500;
   pointer-events: none;
+  text-align: center;
+  width: 100%;
+  padding: 0 1rem;
+}
+
+@media (max-width: 1024px) {
+  .typewriterContainer {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .typewriterContainer {
+    font-size: 1rem;
+  }
 }
