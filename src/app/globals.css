@@ -37,6 +37,10 @@ body {
   overflow-x: hidden;
 }
 
+body.pre-anim {
+  overflow: hidden;
+}
+
 /* Ambient depth layers - prevents flatness */
 .ambient {
   position: fixed;
