@@ -1,0 +1,331 @@
+.carouselSection {
+  background: transparent;
+  min-width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* Prevents horizontal scroll from side cards */
+  padding: 0rem 0 4rem 0; /* Less top padding, safe bottom padding for controls */
+}
+
+.carouselWrapper {
+  width: 100%;
+  padding: 0 1rem;
+  min-width: 350px;
+  max-width: 80rem; /* 1280px */
+}
+@media (min-width: 768px) {
+  .carouselWrapper {
+    min-width: 1000px;
+    padding: 0 2rem;
+  }
+}
+
+.carouselContainer {
+  position: relative;
+  overflow: visible; /* Let cards pop out safely */
+  height: 600px;
+  width: 100%;
+}
+
+.carouselInner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carouselItem {
+  position: absolute;
+  width: 100%;
+  max-width: 42rem; /* Increased from 32rem */
+  transition: all 0.5s ease;
+  will-change: transform, opacity;
+}
+
+.itemActive {
+  transform: scale(1) translateX(0);
+  opacity: 1;
+  z-index: 20;
+}
+
+.itemNext {
+  transform: translateX(40%) scale(0.95);
+  opacity: 0.6;
+  z-index: 10;
+}
+
+.itemPrev {
+  transform: translateX(-40%) scale(0.95);
+  opacity: 0.6;
+  z-index: 10;
+}
+
+.itemHidden {
+  transform: scale(0.9);
+  opacity: 0;
+  z-index: 0;
+}
+
+/* Card 3D Effect */
+.card {
+  background-color: var(--panel);
+  border: 1px solid var(--line-soft);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  border-radius: 0;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translate(-8px, -8px);
+  box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.1), 4px 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -8px;
+  width: 8px;
+  height: 100%;
+  background: #1B84F3;
+  transform-origin: left top;
+  transform: skewY(45deg);
+  z-index: -1;
+  transition: all 0.3s ease;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 100%;
+  height: 8px;
+  background: #000;
+  transform-origin: left top;
+  transform: skewX(45deg);
+  z-index: -1;
+  transition: all 0.3s ease;
+}
+
+.cardImageContainer {
+  position: relative;
+  background-color: #f3f4f6;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+.imageBlurBg {
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  width: 120%;
+  height: 120%;
+  background-size: cover;
+  background-position: center;
+  filter: blur(24px);
+  opacity: 0.6;
+  z-index: 1;
+}
+
+.imageForeground {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 2;
+}
+
+.cardContent {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  background-color: #fff;
+  border-top: 1px solid var(--line-soft);
+}
+
+.cardTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0 0 0.25rem 0;
+  color: #000;
+}
+
+.cardBrand {
+  color: var(--muted);
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin: 0 0 0.5rem 0;
+}
+
+.cardDesc {
+  color: var(--muted);
+  font-size: 0.875rem;
+  flex-grow: 1;
+  margin: 0;
+}
+
+.tagsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.tag {
+  padding: 0.25rem 0.5rem;
+  background-color: #f3f4f6;
+  color: #374151;
+  font-size: 0.75rem;
+  font-family: var(--mono);
+  font-weight: 500;
+}
+
+.linkButton {
+  color: #1B84F3;
+  font-family: var(--mono);
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  width: max-content;
+  position: relative;
+}
+
+.linkButton:hover {
+  text-decoration: underline;
+}
+
+.linkText {
+  position: relative;
+  z-index: 10;
+  font-weight: 700;
+}
+
+.linkIcon {
+  margin-left: 0.5rem;
+  width: 1rem;
+  height: 1rem;
+  position: relative;
+  z-index: 10;
+  transition: transform 0.2s ease;
+}
+
+.linkButton:hover .linkIcon {
+  transform: translateX(4px);
+}
+
+.navButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 0;
+  border: 1px solid var(--line-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  z-index: 30;
+  box-shadow: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.navButton::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -4px;
+  width: 4px;
+  height: 100%;
+  background: #1B84F3;
+  transform-origin: left top;
+  transform: skewY(45deg);
+  z-index: -1;
+  transition: all 0.3s ease;
+}
+
+.navButton::before {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: #000;
+  transform-origin: left top;
+  transform: skewX(45deg);
+  z-index: -1;
+  transition: all 0.3s ease;
+}
+
+.navButton:hover {
+  background-color: #fff;
+  transform: translateY(calc(-50% - 4px)) translateX(-4px);
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navButtonPrev {
+  left: 1rem;
+}
+
+.navButtonNext {
+  right: 1rem;
+}
+
+.navIcon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.dotsContainer {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  z-index: 30;
+}
+
+.dot {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 0;
+  transition: all 0.3s ease;
+  background-color: #e5e7eb;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.dot:hover {
+  background-color: #d1d5db;
+}
+
+.dotActive {
+  background-color: #1B84F3;
+  width: 2rem;
+}

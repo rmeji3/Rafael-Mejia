@@ -1,0 +1,200 @@
+.projects {
+  padding-top: 9rem;
+  padding-bottom: 8rem;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.projects::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image:
+    linear-gradient(var(--line-soft) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line-soft) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse 78% 60% at 50% 42%, #000, transparent 80%);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.projects > * {
+  position: relative;
+  z-index: 1;
+}
+
+.head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.title {
+  font-size: clamp(2.4rem, 6vw, 4.4rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin: 0;
+  line-height: 1;
+  color: var(--fg);
+}
+
+.count {
+  font-family: var(--mono);
+  font-size: 0.82rem;
+  color: var(--muted-2);
+  margin: 0;
+}
+
+.count b {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 720px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.card {
+  position: relative;
+  display: block;
+  text-decoration: none;
+  color: var(--fg);
+  background: var(--panel);
+  border: 1px solid var(--line-soft);
+  border-radius: 14px;
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.4s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  border-color: var(--accent-faint);
+  box-shadow: 0 26px 50px -24px rgba(0, 0, 0, 0.8), 0 0 0 1px var(--accent-faint);
+}
+
+.media {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #0a0d15;
+}
+
+.media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card:hover .media img {
+  transform: scale(1.04);
+}
+
+.media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, var(--panel) 2%, transparent 38%);
+}
+
+.cardBody {
+  padding: 1.3rem 1.5rem 1.6rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.cardTitle {
+  margin: 0 0 0.35rem;
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.cardDesc {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--muted);
+  font-family: var(--mono);
+  letter-spacing: 0.01em;
+}
+
+.arrow {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  display: grid;
+  place-items: center;
+  color: var(--muted);
+  transition: transform 0.3s ease, border-color 0.3s ease, color 0.3s ease, background 0.3s ease;
+}
+
+.card:hover .arrow {
+  transform: rotate(-45deg);
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-faint);
+}
+
+/* Wide Github Strip Card */
+.card.isWide {
+  grid-column: 1 / -1;
+}
+
+.card.isStrip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.5rem 1.8rem;
+}
+
+.stripLeft {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+}
+
+.stripIcon {
+  width: 46px;
+  height: 46px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: #0a0d15;
+  border: 1px solid var(--line-soft);
+  color: var(--fg);
+  transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+.card.isStrip:hover .stripIcon {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.card.isStrip .cardTitle {
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.card.isStrip .cardDesc {
+  margin-top: 0.2rem;
+}

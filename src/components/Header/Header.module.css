@@ -1,0 +1,250 @@
+.heroWrap {
+  padding-top: 5rem;
+  box-sizing: border-box;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2.5rem;
+  width: 100%;
+}
+
+@media (min-width: 992px) {
+  .hero {
+    flex-direction: row;
+    gap: 2rem;
+  }
+}
+
+.heroLeft {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 2rem;
+}
+
+@media (min-width: 992px) {
+  .heroLeft {
+    align-items: flex-start;
+    width: 56%;
+  }
+}
+
+.heroTitle {
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  text-align: center;
+  line-height: 1.04;
+  margin: 0;
+  font-size: clamp(2.4rem, 7.5vw, 5.4rem);
+}
+
+@media (min-width: 992px) {
+  .heroTitle {
+    text-align: left;
+  }
+}
+
+.line {
+  display: block;
+  overflow: hidden;
+}
+
+.line > span {
+  display: inline-block;
+}
+
+.role {
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+.cursor {
+  display: inline-block;
+  width: 3px;
+  height: 0.92em;
+  background: var(--accent);
+  margin-left: 4px;
+  vertical-align: -0.08em;
+  animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+.heroCtaRow {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+@media (min-width: 992px) {
+  .heroCtaRow {
+    justify-content: flex-start;
+  }
+}
+
+.arrow {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Profile Area */
+.heroRight {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+@media (min-width: 992px) {
+  .heroRight {
+    justify-content: flex-end;
+    width: 44%;
+  }
+}
+
+.profileCluster {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.profile {
+  position: relative;
+  width: clamp(180px, 32vw, 300px);
+  height: clamp(180px, 32vw, 300px);
+  animation: float 7s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+.ring {
+  position: absolute;
+  inset: -14px;
+  border-radius: 50%;
+  border: 1px solid var(--accent-faint);
+  box-shadow: 0 0 70px -10px var(--accent-glow);
+}
+
+.circle {
+  position: absolute;
+  width: 42%;
+  height: 42%;
+  top: -12%;
+  left: -6%;
+  background: #f8f9fa;
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.image {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+
+.profileSocials {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.profileSocials a {
+  color: var(--muted);
+  transition: color 0.2s ease, transform 0.2s ease;
+  display: inline-flex;
+}
+
+.profileSocials a:hover {
+  color: var(--accent);
+  transform: translateY(-3px);
+}
+
+/* Subnav links */
+.subnav {
+  margin-top: 3.5rem;
+  border-top: 1px solid var(--line-soft);
+  padding-top: 1.6rem;
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.subnav button {
+  font-family: var(--mono);
+  font-size: 0.82rem;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  gap: 0.45rem;
+  transition: color 0.2s ease;
+  padding: 0;
+}
+
+.subnav button:hover {
+  color: var(--fg);
+}
+
+.subnav button .num {
+  color: var(--accent);
+}
+
+/* Chevron scroll indicator */
+.scrollIndicator {
+  position: fixed;
+  bottom: 1.8rem;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 900;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.scrollIndicator.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.scrollIndicator button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--muted);
+  width: 3rem;
+  height: 3rem;
+  display: grid;
+  place-items: center;
+  animation: bounce 2s infinite;
+  transition: color 0.2s ease;
+  padding: 0;
+}
+
+.scrollIndicator button:hover {
+  color: var(--accent);
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}

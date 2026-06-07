@@ -1,0 +1,234 @@
+.heroWrapper {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  z-index: 1;
+  background-color: #1B84F3;
+}
+
+.heroContainer {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cluster {
+  position: relative;
+  width: 95vw;
+  max-width: 1200px;
+  aspect-ratio: 1 / 1;
+  margin: 0 auto;
+}
+
+.blockWrapper {
+  position: absolute;
+  transform-style: preserve-3d;
+  pointer-events: none; /* Allows clicks to pass through empty space */
+}
+
+/* Specific positions for the exploded isometric look */
+.posUpperRight {
+  top: 30%;
+  right: 30%;
+}
+
+.posUpperLeft {
+  top: 30%;
+  left: 35%;
+}
+
+.posLowerLeft {
+  bottom: 25%;
+  left: 25%;
+}
+
+.posLowerRight {
+  bottom: 30%;
+  right: 15%;
+}
+
+.svgBlock {
+  display: block;
+  width: auto;
+  /* Default height fallback */
+  height: clamp(200px, 40vh, 450px); 
+}
+
+/* Individual sizing for each block */
+.posUpperRight .svgBlock {
+  height: clamp(200px, 30vh, 200px); /* Tweak this to change upper right size */
+}
+
+.posUpperLeft .svgBlock {
+  height: clamp(200px, 40vh, 450px); /* Tweak this to change upper left size */
+}
+
+.posLowerLeft .svgBlock {
+  height: clamp(450px, 50vh, 550px); /* Tweak this to change lower left size */
+}
+
+.posLowerRight .svgBlock {
+  height: clamp(380px, 35vh, 400px); /* Tweak this to change lower right size */
+}
+
+.clampedText {
+  position: absolute;
+  font-family: var(--sans);
+  font-weight: 900;
+  color: #1B84F3; 
+  letter-spacing: 0.05em;
+  pointer-events: none;
+  /* Use line height to keep wrapped text tight */
+  line-height: 1;
+  text-align: center;
+}
+
+/* For black left faces */
+.textUpperLeftFace {
+  color: #ffffff;
+  transform-origin: top left;
+  transform: scaleX(0.866) skewY(27deg) scaleY(3.5); /* Heavier vertical stretch */
+}
+.textLowerLeftFace {
+  color: #ffffff;
+  transform-origin: top left;
+  transform: scaleX(0.866) skewY(27deg) scaleY(5.5); /* Heavier vertical stretch */
+}
+
+/* For blue right faces */
+.textRightFace {
+  color: #000000;
+  transform-origin: top left;
+  transform: scaleX(0.866) skewY(-27deg) scaleY(6); /* Heavier vertical stretch */
+}
+
+/* Icon specific right face */
+.iconRightFace {
+  color: #000000;
+  transform-origin: top left;
+  transform: scaleX(0.866) skewY(-27deg); /* No extreme stretch for icons */
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  outline: none;
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+.iconRightFace:hover {
+  opacity: 1;
+  color: #ffffff;
+}
+
+/* Isometric bounce animation */
+.bounce {
+  animation: isometricBounce 2s infinite ease-in-out;
+}
+
+@keyframes isometricBounce {
+  0%, 100% {
+    transform: scaleX(0.866) skewY(-27deg) translateY(0);
+  }
+  50% {
+    transform: scaleX(0.866) skewY(-27deg) translateY(20px);
+  }
+}
+
+.iconUpperRight {
+  left: 35%;
+  top: 30%;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto; /* Re-enable clicks since .clampedText disables them */
+}
+
+/* Responsive arrow scaling */
+.responsiveIcon {
+  width: clamp(54px, 6vw, 120px);
+  height: clamp(54px, 6vw, 120px);
+}
+
+/* Exact positioning mapping directly to SVG viewBox geometries! */
+.textUpperLeft {
+  left: 0%;
+  top: -42%;
+  width: 84.13%;
+  height: 45.45%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(1.8rem, 3.5vw, 4rem); /* Increased width */
+}
+
+.textLowerLeft {
+  left: 0%;
+  top: -65%;
+  width: 80.73%;
+  height: 37.5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(1.1rem, 2vw, 2.5rem); /* Increased width */
+}
+
+.textLowerRight {
+  left: 24.22%;
+  top: -79%;
+  width: 87.41%;
+  height: 51.47%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(1.5rem, 2.8vw, 3.5rem); /* Increased width */
+}
+
+.hand {
+  position: absolute;
+  top: 50%;
+  width: clamp(180px, 20vw, 280px);
+  z-index: 5; /* Above blocks */
+  pointer-events: none;
+}
+
+.leftHand {
+  left: 0;
+  transform: translateY(-50%);
+}
+
+.rightHand {
+  right: 0;
+  transform: translateY(-50%);
+}
+
+.shadow {
+  position: absolute;
+  bottom: -2vh; /* Slight negative margin just to guarantee overlap with the seam */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 140%; /* massive width to span across */
+  max-width: 1800px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Blinking cursor for typewriter effect */
+.cursor {
+  display: inline-block;
+  animation: blink 1s step-end infinite;
+  margin-left: 0.1em;
+  opacity: 0.9;
+  font-weight: 300;
+  vertical-align: baseline;
+  transform: scale(0.8);
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
