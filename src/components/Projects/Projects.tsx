@@ -71,7 +71,7 @@ export default function Projects() {
       id: 2,
       title: "Maria's Tamales",
       desc: 'Mexican Restaurant',
-      href: 'https://main.d2vq4mm0gwts96.amplifyapp.com/',
+      href: 'https://www.mariastamalesychampurrado.com/',
       imgSrc: marias,
       delay: 0.08,
     },
