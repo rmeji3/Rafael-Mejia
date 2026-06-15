@@ -76,7 +76,7 @@ export default function Projects() {
       href: 'https://readnib.com',
       imgSrc: nib,
       delay: 0.12,
-      tags: ['React', 'Redis', 'Springboot', 'PostgreSQL', 'Gemini', 'Mistral', 'RAG', 'Supabase'],
+      tags: ['React', 'Redis', 'Springboot', 'PostgreSQL', 'Gemini', 'Mistral', 'RAG', 'Supabase', 'Stripe'],
     },
     {
       id: 3,

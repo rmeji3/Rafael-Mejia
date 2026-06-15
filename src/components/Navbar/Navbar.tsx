@@ -27,6 +27,16 @@ export default function Navbar() {
       }
       
       if (!overDark) {
+        const nib = document.getElementById('nib');
+        if (nib) {
+          const rect = nib.getBoundingClientRect();
+          if (rect.top <= 32 && rect.bottom >= 32) {
+            overDark = true;
+          }
+        }
+      }
+      
+      if (!overDark) {
         const footer = document.querySelector('[class*="footerPanel"]');
         if (footer) {
           const rect = footer.getBoundingClientRect();
@@ -63,6 +73,7 @@ export default function Navbar() {
       <div className={styles.links}>
         <button onClick={() => scrollToSection('about-heading', 8.5)}>about</button>
         <button onClick={() => scrollToSection('ping-middle', 8.5)}>ping</button>
+        <button onClick={() => scrollToSection('nib-middle', 8.5)}>nib</button>
         <button onClick={() => scrollToSection('projects-heading', 8.5)}>work</button>
         <button onClick={() => scrollToSection('contact-me', 8.5)}>contact</button>
       </div>

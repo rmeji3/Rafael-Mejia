@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar/Navbar';
 import Hero from '../components/Hero/Hero';
 import About from '../components/About/About';
 import PingFeatured from '../components/PingFeatured/PingFeatured';
+import NibFeatured from '../components/NibFeatured/NibFeatured';
 import Projects from '../components/Projects/Projects';
 import ContactMe from '../components/ContactMe/ContactMe';
 import ScrollProgress from '../components/ScrollProgress';
@@ -35,6 +36,9 @@ export default function Home() {
 
         {/* Featured Project - Ping Showcase */}
         <PingFeatured />
+
+        {/* Featured Project - Nib Showcase */}
+        <NibFeatured />
 
         {/* Secondary Projects Grid */}
         <Projects />

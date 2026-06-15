@@ -167,6 +167,9 @@ export default function Header() {
         <button onClick={() => scrollToSection('ping', 5.5)}>
           <span className={styles.num}>✦</span> ping
         </button>
+        <button onClick={() => scrollToSection('nib', 5.5)}>
+          <span className={styles.num}>✦</span> nib
+        </button>
         <button onClick={() => scrollToSection('projects', 5.5)}>
           <span className={styles.num}>02</span> projects
         </button>
