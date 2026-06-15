@@ -6,6 +6,7 @@ import lupes from '../../assets/lupes.png';
 import marias from '../../assets/marias.png';
 import sanchezInnovations from '../../assets/sanchez_innovations.png';
 import ping from '../../assets/ping-app-cover.png';
+import nib from '../../assets/nib-cover.png';
 import styles from './Projects.module.css';
 import ThreeDCarousel from '../lightswind/3d-carousel';
 
@@ -61,6 +62,24 @@ export default function Projects() {
   const projectsData = [
     {
       id: 1,
+      title: 'Ping',
+      desc: 'Social Experiences App · iOS',
+      href: 'https://ping-app.net',
+      imgSrc: ping,
+      delay: 0.12,
+      tags: ['React Native', 'Redis', 'ASP.NET', 'AWS', 'PostgreSQL', 'OpenAI'],
+    },
+    {
+      id: 2,
+      title: 'Nib',
+      desc: 'Grounded AI PDF Reader · Web',
+      href: 'https://readnib.com',
+      imgSrc: nib,
+      delay: 0.12,
+      tags: ['React', 'Redis', 'Springboot', 'PostgreSQL', 'Gemini', 'Mistral', 'RAG', 'Supabase'],
+    },
+    {
+      id: 3,
       title: "Lupe's Garage Doors",
       desc: 'Garage Door Installation Business',
       href: 'https://www.lupesgaragedoors.com',
@@ -68,7 +87,7 @@ export default function Projects() {
       delay: 0,
     },
     {
-      id: 2,
+      id: 4,
       title: "Maria's Tamales",
       desc: 'Mexican Restaurant',
       href: 'https://www.mariastamalesychampurrado.com/',
@@ -76,21 +95,12 @@ export default function Projects() {
       delay: 0.08,
     },
     {
-      id: 3,
+      id: 5,
       title: 'Sanchez Innovations',
       desc: 'Lawncare Business',
       href: 'https://sanchez-innovations.com/',
       imgSrc: sanchezInnovations,
       delay: 0.04,
-    },
-    {
-      id: 4,
-      title: 'Ping',
-      desc: 'Social Experiences App · iOS',
-      href: 'https://ping-app.net',
-      imgSrc: ping,
-      delay: 0.12,
-      tags: ['React Native', 'Redis', 'ASP.NET', 'AWS', 'PostgreSQL', 'OpenAI'],
     },
   ];
 
@@ -123,7 +133,7 @@ export default function Projects() {
       <div className={styles.carouselContainer}>
         <ThreeDCarousel 
           items={[...projectsData, {
-            id: 5,
+            id: 6,
             title: "More on GitHub",
             desc: "Source, experiments & more",
             href: "https://github.com/rmeji3",
